@@ -11,6 +11,8 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
+    protected $connection = 'mysql';
+
     /**
      * The attributes that are mass assignable.
      *
