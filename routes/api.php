@@ -16,5 +16,7 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 Route::group(['middleware' => ['auth:api']], function () {
-    
+    Route::group(['prefix' => 'player'], function () {
+        Route::post('/store', 'PlayerController@store')->name('player.store');
+    });
 });
