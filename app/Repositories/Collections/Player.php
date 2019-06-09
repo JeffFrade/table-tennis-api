@@ -13,6 +13,7 @@ class Player extends Model
     protected $primaryKey = '_id';
     protected $collection = 'players';
     protected $fillable = [
+        'player_id',
         'photo',
         'name',
         'country',

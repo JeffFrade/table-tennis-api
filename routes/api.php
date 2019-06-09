@@ -18,5 +18,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth:api']], function () {
     Route::group(['prefix' => 'player'], function () {
         Route::post('/store', 'PlayerController@store')->name('player.store');
+        Route::get('/find/{id}', 'PlayerController@find')->name('player.find');
+        Route::put('/update/{id}', 'PlayerController@update')->name('player.update');
     });
 });

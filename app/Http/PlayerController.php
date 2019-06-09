@@ -29,4 +29,26 @@ class PlayerController extends Controller
             return response()->json(['status' => 500, 'data' => null], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function find($id)
+    {
+        try {
+            $player = $this->player->find($id);
+            return response()->json(['status' => 200, 'data' => $player], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            $this->getError($e);
+            return response()->json(['status' => 500, 'data' => null], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $player = $this->player->update($request->all(), $id);
+            return response()->json(['status' => 200, 'data' => $player], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            $this->getError($e);
+            return response()->json(['status' => 500, 'data' => null], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }
