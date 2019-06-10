@@ -22,5 +22,6 @@ class Player extends Model
         'activity',
         'playing_hand',
         'playing_style',
+        'grip'
     ];
 }
