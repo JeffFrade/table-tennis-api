@@ -18,7 +18,7 @@ class Player extends Model
         'name',
         'country',
         'gender',
-        'age',
+        'birth_date',
         'activity',
         'playing_hand',
         'playing_style',
