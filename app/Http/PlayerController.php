@@ -19,6 +19,17 @@ class PlayerController extends Controller
         $this->player = $player;
     }
 
+    public function index(Request $request)
+    {
+        try {
+            $players = $this->player->index($request->all());
+            return response()->json(['status' => 200, 'data' => $players], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            $this->getError($e);
+            return response()->json(['status' => 500, 'data' => null], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public function store(Request $request)
     {
         try {
